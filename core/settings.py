@@ -11,21 +11,29 @@ https://docs.djangoproject.com/en/6.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+import environ
 
+env = environ.Env(
+    DJANGO_DEBUG=(bool, False),
+)
+
+environ.Env.read_env(BASE_DIR / ".env")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sdcw&=ve-h($b63+p6t#%v6eb(3bts2b_f34vnc4vjs4x5yl%3'
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env("DJANGO_DEBUG")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=[])
+
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=[])
 
 
 # Application definition
@@ -125,3 +133,17 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+
+environ.Env.read_env(BASE_DIR / ".env")
+
+KHALTI_SECRET_KEY = env("KHALTI_SECRET_KEY", default="")
+ESEWA_PRODUCT_CODE = env("ESEWA_PRODUCT_CODE", default="")
+ESEWA_SECRET_KEY = env("ESEWA_SECRET_KEY", default="")
+
+
+DEFAULT_FROM_EMAIL = env(
+    "DEFAULT_FROM_EMAIL",
+    default="FloraShop <no-reply@localhost>",
+)

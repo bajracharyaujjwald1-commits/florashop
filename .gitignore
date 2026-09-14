@@ -8,3 +8,10 @@ wheels/
 
 # Virtual environments
 .venv
+
+#secrets
+.env
+
+# Local django data and uploaded files
+db.sqlite3
+media/
