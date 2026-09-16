@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FloraShop | Sign in</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'script.css' %}">
+</head>
+
+<body class="login-page">
+    <main class="container min-vh-100 d-flex align-items-center py-4">
+        <div class="row login-shell g-0 w-100 mx-auto">
+            <div class="col-lg-6 image-column d-none d-lg-block"></div>
+
+            <div class="col-lg-6 form-column d-flex align-items-center">
+                <div class="login-content w-100">
+                    <a class="login-brand" href="{% url 'home' %}">FloraShop</a>
+
+                    <p class="login-label mt-5 mb-2">WELCOME BACK</p>
+                    <h1 class="login-title mb-4" style="font-weight: lighter!important;">Sign in</h1>
+
+                    <!-- Render Django messages (e.g. login errors, successful registration) -->
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'login' %}">
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <label class="form-label" for="u_name">Username</label>
+                            <input class="form-control login-input" type="text" name="username" id="u_name"
+                                autocomplete="username" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="p_word">Password</label>
+                            <input class="form-control login-input" type="password" name="password" id="p_word"
+                                autocomplete="current-password" required>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember_me" id="remember">
+                                <label class="form-check-label" for="remember">Remember me</label>
+                            </div>
+
+                            <a class="login-link" href="#">Forgot password?</a>
+                        </div>
+
+                        <button class="btn login-submit w-100 py-3" type="submit">
+                            Sign in
+                        </button>
+
+                        <p class="login-note text-center mt-4 mb-0">
+                            New to FloraShop?
+                            <a class="login-link fw-bold" href="{% url 'signup' %}">Create an account</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

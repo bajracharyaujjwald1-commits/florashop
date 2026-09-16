@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FloraShop | Create Account</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/script.css' %}">
+</head>
+
+<body class="login-page">
+    <main class="container min-vh-100 d-flex align-items-center py-4">
+        <div class="row login-shell g-0 w-100 mx-auto">
+
+            <!-- Left Banner Image Column -->
+            <div class="col-lg-6 image-column d-none d-lg-block"></div>
+
+            <!-- Right Form Column -->
+            <div class="col-lg-6 form-column d-flex align-items-center">
+                <div class="login-content w-100">
+                    <a class="login-brand" href="{% url 'home' %}">FloraShop</a>
+
+                    <p class="login-label mt-4 mb-2">JOIN OUR COMMUNITY</p>
+                    <h1 class="login-title mb-4" style="font-weight: lighter!important;">Create Account</h1>
+
+                    <!-- Django Flash Messages -->
+                    {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+
+                    <form method="POST" action="{% url 'signup' %}">
+                        {% csrf_token %}
+
+                        <!-- Form Validation Errors -->
+                        {% if form.errors %}
+                        <div class="alert alert-danger mb-4">
+                            Please correct the errors below and try again.
+                        </div>
+                        {% endif %}
+
+                        <!-- Renders fields (Username, Passwords, etc.) formatted with CSS -->
+                        {% for field in form %}
+                        <div class="mb-3">
+                            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+
+                            <!-- Injects login-input class for consistent styling -->
+                            <input class="form-control login-input {% if field.errors %}is-invalid{% endif %}"
+                                type="{{ field.widget_type|default:'text' }}" name="{{ field.name }}"
+                                id="{{ field.id_for_label }}" {% if field.value %}value="{{ field.value }}" {% endif %}
+                                required>
+
+                            {% if field.help_text %}
+                            <div class="form-text text-muted small mt-1">{{ field.help_text|safe }}</div>
+                            {% endif %}
+
+                            {% for error in field.errors %}
+                            <div class="invalid-feedback d-block">{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+
+                        <button class="btn login-submit w-100 py-3 mt-3" type="submit">
+                            Create Account
+                        </button>
+
+                        <p class="login-note text-center mt-4 mb-0">
+                            Already have an account?
+                            <a class="login-link fw-bold" href="{% url 'login' %}">Sign in here</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
