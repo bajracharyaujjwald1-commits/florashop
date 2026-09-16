@@ -13,11 +13,10 @@ def signup_view(request):
         if form.is_valid():
             # Save the new user object
             user = form.save()
-            email = form.save()
+            
 
             # Automatically create the associated Customer profile
-            Customer.objects.create(username=user)
-            Customer.objects.create(email=email)
+            Customer.objects.create(username=user, email = user.email)
 
             # Log the user in immediately after registering
             login(request, user)

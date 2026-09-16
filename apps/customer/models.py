@@ -6,7 +6,7 @@ class Customer(models.Model):
     username = models.OneToOneField(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
-        related_name="customer_profile",
+        related_name="customer_profile"
     )
     email = models.CharField(max_length=50, verbose_name="email", null=True)
 
