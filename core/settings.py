@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # ... default django apps ...
+    'rest_framework',
     # project apps
     'apps.customer',
 ]
