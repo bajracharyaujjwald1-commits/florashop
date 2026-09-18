@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # project apps
     'apps.customer',
-    'apps.products'
+    'apps.products',
+    'apps.purchase',
 ]
 
 MIDDLEWARE = [

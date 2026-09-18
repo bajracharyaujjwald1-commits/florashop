@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if object %}Update {{ object.name }}{% else %}Add New Product{% endif %} - FloraShop</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'script.css' %}">
+</head>
+
+<body class="bg-light py-5">
+    <div class="container" style="max-width: 600px;">
+
+        <!-- Navigation back to list -->
+        <div class="mb-3">
+            <a href="{% url 'product_list' %}" class="text-decoration-none text-muted">
+                <i class="bi bi-arrow-left"></i> Back to Products
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0 p-4">
+            <h2 class="mb-4 fw-bold">
+                {% if object %}
+                Update Product: <span class="text-primary">{{ object.name }}</span>
+                {% else %}
+                Add New Product
+                {% endif %}
+            </h2>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% if form.non_field_errors %}
+                <div class="alert alert-danger">
+                    {{ form.non_field_errors }}
+                </div>
+                {% endif %}
+
+                <!-- Form Fields Loop -->
+                {% for field in form %}
+                <div class="mb-3">
+                    <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
+                        {{ field.label }}
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.help_text %}
+                    <div class="form-text">{{ field.help_text }}</div>
+                    {% endif %}
+
+                    {% for error in field.errors %}
+                    <div class="text-danger small mt-1">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+                <!-- Actions -->
+                <div class="d-flex justify-content-between align-items-center mt-4 pt-2 border-top">
+                    <a href="{% url 'product_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-success px-4">
+                        {% if object %}
+                        <i class="bi bi-check-lg me-1"></i> Save Changes
+                        {% else %}
+                        <i class="bi bi-plus-lg me-1"></i> Create Product
+                        {% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
