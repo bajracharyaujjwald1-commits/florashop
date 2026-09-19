@@ -155,3 +155,5 @@ DEFAULT_FROM_EMAIL = env(
     "DEFAULT_FROM_EMAIL",
     default="FloraShop <no-reply@localhost>",
 )
+
+LOGIN_URL = "/admin/login/"
