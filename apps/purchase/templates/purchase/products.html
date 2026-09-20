@@ -54,102 +54,32 @@
 		<div class="container">
 
 			<h1>Dried And Fresh Florals</h1>
-
+			{%for i in florals%}
 			<!-- Card 1 -->
 			<div class="floral-card">
 				<div class="row align-items-center g-0">
 					<div class="col-md-6">
 						<div class="floral-image">
-							<img src="{% static 'images/bouquet.jpg' %}" class="img-fluid">
+							<img src="{{i.image.url}}" class="img-fluid">
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="floral-content">
-							<h3>Boho Sunset Mix</h3>
+							<h3>{{i.name}}</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 								consequat. </p>
-							<h4>Rs.200</h4>
-							<button>Purchase</button>
+							<h4>Rs.{{i.price}}</h4>
+							<a href="{% url 'purchase:create_purchase' i.id %}" class="btn btn-dark">
+								Purchase
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-
-
-			<!-- Card 2 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0 flex-md-row-reverse">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/flower1.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Lavendar and wheat</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.150</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Card 3 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/bouquet2.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Modern Natural Crescent</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.250</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Card 4 -->
-			<div class="floral-card scroll-pop">
-				<div class="row align-items-center g-0 flex-md-row-reverse">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/bouquet1.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Spring Pastel</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.200</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			{% endfor%}
 		</div>
 	</section>
 	<!-- Fresh and dried floral section ends here -->
@@ -161,102 +91,33 @@
 		<div class="container">
 
 			<h1>Plants and living greenary</h1>
-
+			{%for i in plants%}
 			<!-- Card 1 -->
 			<div class="floral-card">
 				<div class="row align-items-center g-0">
 					<div class="col-md-6">
 						<div class="floral-image">
-							<img src="{% static 'images/green.jpg' %}" class="img-fluid">
+							<img src="{{i.image.url}}" class="img-fluid">
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="floral-content">
-							<h3>Eucalyptus</h3>
+							<h3>{{i.name}}</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 								consequat. </p>
-							<h4>Rs.200</h4>
-							<button>Purchase</button>
+							<h4>Rs.{{i.price}}</h4>
+							<a href="{% url 'purchase:create_purchase' i.id %}" class="btn btn-dark">
+								Purchase
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
 
-
-			<!-- Card 2 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0 flex-md-row-reverse">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/green1.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>ZZ Plant</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.250</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Card 3 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/green2.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Golden Pothos</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.250</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Card 4 -->
-			<div class="floral-card scroll-pop">
-				<div class="row align-items-center g-0 flex-md-row-reverse">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/green3.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Chinese Evergreen</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.300</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			{%endfor%}
 		</div>
 	</section>
 	<!-- Plants and living greenary section ends here -->
@@ -272,80 +133,37 @@
   letter-spacing: 0.18em;">PREMIUM</p>
 
 			<h1>Gifts & Home Goods</h1>
-
+			{%for i in gifts%}
 			<!-- Card 1 -->
 			<div class="floral-card">
 				<div class="row align-items-center g-0">
 					<div class="col-md-6">
 						<div class="floral-image">
-							<img src="{% static 'images/candle.jpg' %}" class="img-fluid">
+							<img src="{{i.image.url}}" class="img-fluid">
 						</div>
 					</div>
 
 					<div class="col-md-6">
 						<div class="floral-content">
-							<h3>Scented Candles</h3>
+							<h3>{{i.name}}</h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 								consequat. </p>
-							<h4>Rs.400</h4>
-							<button>Purchase</button>
+							<h4>Rs.{{i.price}}</h4>
+							<a href="{% url 'purchase:create_purchase' i.id %}" class="btn btn-dark">
+								Purchase
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 
-
-			<!-- Card 2 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0 flex-md-row-reverse">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/cards.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Greeting Cards</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.150</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Card 3 -->
-			<div class="floral-card">
-				<div class="row align-items-center g-0">
-					<div class="col-md-6">
-						<div class="floral-image">
-							<img src="{% static 'images/spa.jpg' %}" class="img-fluid">
-						</div>
-					</div>
-
-					<div class="col-md-6">
-						<div class="floral-content">
-							<h3>Spa Baskets</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. </p>
-							<h4>Rs.600</h4>
-							<button>Purchase</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
+		{%endfor%}
 		</div>
 	</section>
+
 	<!-- premium section ends here -->
 	<!-- contact and footer starts here -->
 	<footer id="Contact" class="site-footer pt-5 pb-4">

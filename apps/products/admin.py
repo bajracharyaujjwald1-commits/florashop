@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     # Field names use the lower_case 'category' convention matching recommended fixes
-    list_display = ("id", "name", "Category", "price", "is_available", "created_at")
+    list_display = ("id", "name", "Category", "price","image", "is_available", "created_at")
     list_filter = ("Category", "is_available", "created_at")
     search_fields = ("name",)
     list_editable = ("price", "is_available")

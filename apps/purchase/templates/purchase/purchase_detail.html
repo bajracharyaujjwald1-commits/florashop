@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order #{{ purchase.purchase_number }} | FloraShop</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+
+                <!-- Success Status Alert -->
+                <div class="alert alert-success d-flex align-items-center rounded-3 p-3 mb-4" role="alert">
+                    <i class="bi bi-check-circle-fill fs-4 me-3"></i>
+                    <div>
+                        <h5 class="alert-heading mb-1 fw-bold">Purchase Order Created!</h5>
+                        <p class="mb-0 small">Your order has been logged with pending payment verification.</p>
+                    </div>
+                </div>
+
+                <!-- Order Invoice Card -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4">
+                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+                        <div>
+                            <h4 class="fw-bold mb-0">Order Invoice</h4>
+                            <span class="text-muted small">Generated on {{ purchase.purchase_date}}</span>
+                        </div>
+                        <div>
+                            {% if purchase.payment_status == 'pending' %}
+                            <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fs-6">Pending Payment</span>
+                            {% else %}
+                            <span class="badge bg-success px-3 py-2 rounded-pill fs-6">Verified</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <span class="text-muted small d-block">Purchase Number</span>
+                            <strong class="font-monospace text-dark">{{ purchase.purchase_number }}</strong>
+                        </div>
+                        <div class="col-6 text-end">
+                            <span class="text-muted small d-block">Invoice Number</span>
+                            <strong class="font-monospace text-dark">{{ purchase.invoice_number }}</strong>
+                        </div>
+                    </div>
+
+                    <div class="bg-light rounded-3 p-3 mb-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Subtotal</span>
+                            <span>Rs. {{ purchase.sub_total }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Discount</span>
+                            <span class="text-success">- Rs. {{ purchase.discount }}</span>
+                        </div>
+                        <hr class="my-2">
+                        <div class="d-flex justify-content-between fw-bold fs-5 text-dark">
+                            <span>Total Payable</span>
+                            <span>Rs. {{ purchase.total }}</span>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method Section -->
+                    <h5 class="fw-bold mb-3">Select Payment Method</h5>
+                    <div class="d-grid gap-2">
+                        <button
+                            class="btn btn-outline-success py-3 rounded-pill fw-bold d-flex justify-content-center align-items-center"
+                            disabled>
+                            Pay with eSewa / Khalti <span class="badge bg-secondary ms-2">Coming Soon</span>
+                        </button>
+                        <button class="btn btn-dark py-3 rounded-pill fw-bold">
+                            Cash on Delivery
+                        </button>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="{% url 'purchase:products' %}" class="btn btn-link text-decoration-none text-muted">
+                        Continue Shopping
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
