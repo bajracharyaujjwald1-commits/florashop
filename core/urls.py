@@ -25,6 +25,7 @@ urlpatterns = [
     path('api/product/', include('apps.products.api.urls')),
     #dashboards
     path("florashop/",include("apps.customer.urls")),
+    path("florashop/products",include('apps.purchase.urls')),
     path("florashop/products_details/", include("apps.products.urls"))
     
 ]

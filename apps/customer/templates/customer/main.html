@@ -70,7 +70,7 @@
         ALL ABOUT FLOWERS AND AESTHETICS
       </h5>
 
-      <button class="btn home-button px-4 py-3">
+      <button id="login" class="btn home-button px-4 py-3">
         <a href="{% url 'login' %}" style="text-decoration: none; color: #fff;">Join with us now!</a>
 
       </button>
@@ -151,7 +151,11 @@
               florists and botanists, we bring beautiful, fragrant flowers to
               homes and celebrations across Nepal.
             </p>
-            <a href="#" class="btn product-button">Know more</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'purchase:products' %}#Florals" class="btn product-button">Know more</a>
+            {%else%}
+            <a href="#login" class="btn product-button">Know more</a>
+            {% endif %}
           </div>
         </div>
 
@@ -171,7 +175,11 @@
               offices. We also design dish gardens for those who enjoy subtle,
               lasting greenery.
             </p>
-            <a href="#" class="btn product-button">Know more</a>
+            {%if user.is_authenticated%}
+            <a href="{% url 'purchase:products' %}#plants" class="btn product-button">Know more</a>
+            { %else%}
+            <a href="#login" class="btn product-button">Know more</a>
+            {% endif %}
           </div>
         </div>
 
@@ -191,7 +199,11 @@
               Make celebrations feel more personal with scented candles, curated
               spa baskets, handmade greeting cards, ribbons, and gift tags.
             </p>
-            <a href="#" class="btn product-button">Know more</a>
+            {%if user.is_authenticated%}
+            <a href="{% url 'purchase:products' %}#gifts" class="btn product-button">Know more</a>
+            {%else%}
+            <a href="#login" class="btn product-button">Know more</a>
+            {% endif %}
           </div>
         </div>
 
