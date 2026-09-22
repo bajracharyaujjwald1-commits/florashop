@@ -32,35 +32,65 @@ def create_purchase_view(request, product_id):
     sub_total = product.price
     discount = Decimal(0.00)
     total = sub_total - discount
+    purchase_no = f"PUR-{uuid.uuid4().hex[:8].upper()}"
+    invoice_no = f"INV-{uuid.uuid4().hex[:8].upper()}"
     if request.method == "POST":
-        purchase_no = f"PUR-{uuid.uuid4().hex[:8].upper()}"
-        invoice_no = f"INV-{uuid.uuid4().hex[:8].upper()}"
+        payment_method = request.POST.get("payment_method")
+        
 
         purchase = Purchase.objects.create(
+            product =product,
+   
+            user = request.user,
             purchase_number = purchase_no,
             invoice_number = invoice_no,
             purchase_date = timezone.now().date(),
             sub_total = sub_total,
             discount = discount,
             total = total,
-            is_purchase_verified = False,
-            payment_status = PaymentStatus.PENDING,
+            is_purchase_verified=(
+                True if payment_method == "cod" else False
+            ),  # Verified immediately for COD
+            payment_status=(
+                PaymentStatus.PENDING
+            ),  # Or PaymentStatus.COD if you have it
 
 
         )
-        return redirect("purchase:purchase_detail", purchase_id = purchase.id)
+        if payment_method == "Khalti":
+           return redirect("payment:initiate_payment", purchase_id=purchase.id)
+        else:
+
+            return redirect("purchase:purchase_detail", purchase_id = purchase.id)
 
     context = {
         "product": product,
+        "purchase_number": purchase_no,
+        "invoice_number": invoice_no,
         "sub_total": sub_total,
         "discount": discount,
         "total": total,
+
     }
     return render(request, "purchase/confirm_purchase.html", context)
 
+
 @login_required
 def purchase_detail_view(request, purchase_id):
+    """Renders the invoice page where user selects Khalti or COD."""
     purchase = get_object_or_404(Purchase, id=purchase_id)
     return render(
-        request, "purchase/purchase_detail.html",{"purchase":purchase}
+        request, "purchase/purchase_detail.html", {"purchase": purchase}
     )
+
+
+
+@login_required
+def confirm_purchase_view(request, purchase_id):
+    purchase = get_object_or_404(Purchase, id=purchase_id)
+
+    context = {
+        "purchase": purchase,  # <-- Make sure 'purchase' is passed here!
+    }
+    return render(request, "purchase/confirm_purchase.html", context)
+

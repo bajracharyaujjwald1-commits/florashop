@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # ... default django apps ...
     'rest_framework',
+    'drf_spectacular',
     # project apps
     'apps.customer',
     'apps.products',
@@ -134,6 +135,21 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
@@ -141,13 +157,25 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+    # YOUR SETTINGS
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
 
 
 environ.Env.read_env(BASE_DIR / ".env")
 
-KHALTI_SECRET_KEY = env("KHALTI_SECRET_KEY", default="")
+KHALTI_SECRET_KEY = (
+    "8e56ccb718c049ae806a10cd39262e67"  # Replace with your Sandbox Secret Key
+)
+
+# Khalti v2 Endpoints (Sandbox)
+KHALTI_INITIATE_URL = "https://dev.khalti.com/api/v2/epayment/initiate/"
+KHALTI_LOOKUP_URL = "https://dev.khalti.com/api/v2/epayment/lookup/"
+
+# Application Redirect URLs
+KHALTI_RETURN_URL = "http://localhost:8000/florashop/payment/callback/"
+KHALTI_WEBSITE_URL = "http://localhost:8000/florashop/"
 ESEWA_PRODUCT_CODE = env("ESEWA_PRODUCT_CODE", default="")
 ESEWA_SECRET_KEY = env("ESEWA_SECRET_KEY", default="")
 

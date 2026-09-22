@@ -18,17 +18,36 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
+from apps.payment.views import payment_callback
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #rest_framework
+
     #apis
     path('api/customer/', include('apps.customer.api.urls')),
     path('api/product/', include('apps.products.api.urls')),
+    path('api/purchase/',include('apps.purchase.api.urls')),
     #dashboards
     path("florashop/",include("apps.customer.urls")),
-    path("florashop/products",include('apps.purchase.urls')),
+    path("florashop/products/",include('apps.purchase.urls')),
     path("florashop/products_details/", include("apps.products.urls")),
-    path("florashop/purchase/", include("apps.purchase.urls")),
+    path("florashop/payment/", include("apps.payment.urls")),
+
+     # YOUR PATTERNS
+    path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
+    # Optional UI:
+    path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+     # simplejwt
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 if settings.DEBUG:

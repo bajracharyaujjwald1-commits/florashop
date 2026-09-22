@@ -1,13 +1,20 @@
 from django.db import models
 from apps.products.models import Product
+from django.conf import settings
 # Create your models here.
+
 
 class PaymentStatus(models.TextChoices):
     PENDING = 'pending', 'pending'
     PAID = 'paid', 'paid'
     UNPAID = 'unpaid', 'unpaid'
+    CANCELLED = 'cancelled','cancelled'
 
 class Purchase(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    )
     purchase_number = models.CharField(max_length=50, unique=True)
     purchase_date = models.DateField()
     invoice_number = models.CharField(max_length=50, null =True, blank= True)

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirm Order | FloraShop</title>
+    <title>Order Confirmation #{{ purchase.purchase_number }} | FloraShop</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -16,88 +16,63 @@
 
     <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <!-- Header Navigation -->
-                <div class="mb-4">
-                    <a href="{% url 'purchase:products' %}" class="text-decoration-none text-muted">
-                        <i class="bi bi-arrow-left me-1"></i> Back to Shop
+            <div class="col-lg-7">
+
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center mb-4">
+                    {% if purchase.is_purchase_verified %}
+                    <div class="text-success mb-3">
+                        <i class="bi bi-check-circle-fill display-1"></i>
+                    </div>
+                    <h2 class="fw-bold text-dark">Payment Successful!</h2>
+                    <p class="text-muted">Your payment via Khalti was verified. Your order is now being processed.</p>
+                    {% else %}
+                    <div class="text-primary mb-3">
+                        <i class="bi bi-box-seam-fill display-1"></i>
+                    </div>
+                    <h2 class="fw-bold text-dark">Order Confirmed (Cash on Delivery)</h2>
+                    <p class="text-muted">Thank you! Please keep Rs. {{ total }} ready upon delivery.</p>
+                    {% endif %}
+
+                    <div class="bg-light rounded-3 p-3 my-4 text-start">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Purchase No:</span>
+                            <span class="font-monospace fw-bold">{{ purchase_number }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Invoice No:</span>
+                            <span class="font-monospace fw-bold">{{ invoice_number }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Total Amount:</span>
+                            <span class="fw-bold text-dark">Rs. {{ total }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="text-muted">Payment Method:</span>
+                            <div class="d-grid gap-3">
+                                <!-- Option 1: Pay with Khalti -->
+                                <form method="POST" action="{% url 'purchase:create_purchase' product.id %}">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="payment_method" value="khalti">
+                                    <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">
+                                        Pay with Khalti (Rs. {{ total }})
+                                    </button>
+                                </form>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="{% url 'purchase:products' %}" class="btn btn-dark btn-lg rounded-pill fw-bold">
+                        Return to Store
                     </a>
                 </div>
 
-                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                    <div class="card-header bg-dark text-white p-4">
-                        <h4 class="card-title mb-0">Order Confirmation</h4>
-                        <p class="text-white-50 small mb-0">Please review your selected item before placing the order.
-                        </p>
-                    </div>
-
-                    <div class="card-body p-4">
-                        <!-- Product Details Section -->
-                        <div class="row align-items-center g-4 mb-4">
-                            <div class="col-md-4 text-center">
-                                {% if product.image %}
-                                <img src="{{ product.image.url }}" alt="{{ product.name }}"
-                                    class="img-fluid rounded-3 shadow-sm object-fit-cover"
-                                    style="max-height: 200px; width: 100%;">
-                                {% else %}
-                                <img src="{% static 'images/bouquet.jpg' %}" alt="{{ product.name }}"
-                                    class="img-fluid rounded-3 shadow-sm object-fit-cover"
-                                    style="max-height: 200px; width: 100%;">
-                                {% endif %}
-                            </div>
-                            <div class="col-md-8">
-                                <span class="badge bg-secondary text-light mb-2">{{ product.category.name }}</span>
-                                <h3 class="h4 text-dark fw-bold mb-2">{{ product.name }}</h3>
-                                <p class="text-muted small mb-3">{{ product.description }}</p>
-                                <div class="h5 fw-bold text-dark mb-0">Rs. {{ product.price }}</div>
-                            </div>
-                        </div>
-
-                        <hr class="my-4 text-muted">
-
-                        <!-- Price Breakdown -->
-                        <h5 class="fw-bold mb-3">Payment Summary</h5>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted">Subtotal</span>
-                            <span class="fw-medium">Rs. {{ sub_total }}</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-2">
-                            <span class="text-muted">Discount</span>
-                            <span class="text-success fw-medium">- Rs. {{ discount }}</span>
-                        </div>
-                        <div class="d-flex justify-content-between mb-3">
-                            <span class="text-muted">Estimated Shipping</span>
-                            <span class="text-muted">Calculated at checkout</span>
-                        </div>
-
-                        <hr class="my-3">
-
-                        <div class="d-flex justify-content-between fs-5 fw-bold text-dark mb-4">
-                            <span>Total Amount</span>
-                            <span>Rs. {{ total }}</span>
-                        </div>
-
-                        <!-- Submission Form -->
-                        <form method="POST" action="">
-                            {% csrf_token %}
-                            <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-dark btn-lg rounded-pill fw-bold">
-                                    Place Order & Proceed
-                                </button>
-                                <a href="{% url 'purchase:products' %}"
-                                    class="btn btn-outline-secondary btn-lg rounded-pill">
-                                    Cancel
-                                </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
