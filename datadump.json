@@ -1,0 +1,37 @@
+[
+{
+    "model": "auth.user",
+    "fields": {
+        "password": "pbkdf2_sha256$1500000$W9ut8yzUHQqqksx3tEG2aR$LUiq24ENj257gm6A13a6MbHvpgUcYKXLZR/9jyg0bro=",
+        "last_login": "2026-10-10T05:15:01.459Z",
+        "is_superuser": false,
+        "username": "ujjwal",
+        "first_name": "",
+        "last_name": "",
+        "email": "bajracharyaujjwal.1d@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-10T05:14:57.424Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "h71234kdkjt9b7kz6iy2vnj6o25mgai0",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGlmx_F1Kes5g7dprHECOFCcV4u5gKQW0b2beS0Tctxr3zmucszgLJU6_G2F6cBsg37HdFpmWtq0zyaHIg3Z5XTI_L4f7d1Cx128NSRtvC-tA01TAgCUsDEYhQmAKmACzJ-dJJ2vZOO2ZMSs_QmYn3h_4cziw:1xFPQD:I6CEsEkM_cwxREoQlt4mhKoV1Ac0olunHt9u43kqfUY",
+        "expire_date": "2026-10-24T05:15:01.686Z"
+    }
+},
+{
+    "model": "customer.customer",
+    "pk": 1,
+    "fields": {
+        "username": [
+            "ujjwal"
+        ],
+        "email": "bajracharyaujjwal.1d@gmail.com"
+    }
+}
+]
