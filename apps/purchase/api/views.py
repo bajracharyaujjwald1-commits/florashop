@@ -18,7 +18,7 @@ class PurchaseView(GenericAPIView):
 
     def post(self, request):
         data =request.data
-        serializer = self.get_serializer(data, may =True)
+        serializer = self.get_serializer(data, data=request.data)
 
         if serializer.is_valid():
             serializer.save()
