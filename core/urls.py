@@ -28,9 +28,10 @@ from apps.payment.views import payment_callback
 
 
 urlpatterns = [
+    path('', RedirectView.as_view(url='/florashop/', permanent=False)),
     path('admin/', admin.site.urls),
     #rest_framework
-    path('', RedirectView.as_view(url='/florashop/', permanent=False)),
+    
     #apis
     path('api/customer/', include('apps.customer.api.urls')),
     path('api/product/', include('apps.products.api.urls')),
