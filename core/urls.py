@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import RedirectView
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -29,7 +30,7 @@ from apps.payment.views import payment_callback
 urlpatterns = [
     path('admin/', admin.site.urls),
     #rest_framework
-
+    path('', RedirectView.as_view(url='/florashop/', permanent=False)),
     #apis
     path('api/customer/', include('apps.customer.api.urls')),
     path('api/product/', include('apps.products.api.urls')),
