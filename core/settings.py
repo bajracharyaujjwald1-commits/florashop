@@ -177,8 +177,12 @@ KHALTI_INITIATE_URL = "https://dev.khalti.com/api/v2/epayment/initiate/"
 KHALTI_LOOKUP_URL = "https://dev.khalti.com/api/v2/epayment/lookup/"
 
 # Application Redirect URLs
-KHALTI_RETURN_URL = "http://localhost:8000/florashop/payment/callback/"
-KHALTI_WEBSITE_URL = "http://localhost:8000/florashop/"
+KHALTI_RETURN_URL = os.getenv(
+    "KHALTI_RETURN_URL", "http://localhost:8000/florashop/payment/callback/"
+)
+KHALTI_WEBSITE_URL = os.getenv(
+    "KHALTI_WEBSITE_URL", "http://localhost:8000/florashop/"
+)
 ESEWA_PRODUCT_CODE = env("ESEWA_PRODUCT_CODE", default="")
 ESEWA_SECRET_KEY = env("ESEWA_SECRET_KEY", default="")
 

@@ -1,37 +1,166 @@
 [
 {
-    "model": "auth.user",
-    "fields": {
-        "password": "pbkdf2_sha256$1500000$W9ut8yzUHQqqksx3tEG2aR$LUiq24ENj257gm6A13a6MbHvpgUcYKXLZR/9jyg0bro=",
-        "last_login": "2026-10-10T05:15:01.459Z",
-        "is_superuser": false,
-        "username": "ujjwal",
-        "first_name": "",
-        "last_name": "",
-        "email": "bajracharyaujjwal.1d@gmail.com",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2026-10-10T05:14:57.424Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "h71234kdkjt9b7kz6iy2vnj6o25mgai0",
-    "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGlmx_F1Kes5g7dprHECOFCcV4u5gKQW0b2beS0Tctxr3zmucszgLJU6_G2F6cBsg37HdFpmWtq0zyaHIg3Z5XTI_L4f7d1Cx128NSRtvC-tA01TAgCUsDEYhQmAKmACzJ-dJJ2vZOO2ZMSs_QmYn3h_4cziw:1xFPQD:I6CEsEkM_cwxREoQlt4mhKoV1Ac0olunHt9u43kqfUY",
-        "expire_date": "2026-10-24T05:15:01.686Z"
-    }
-},
-{
-    "model": "customer.customer",
+    "model": "products.category",
     "pk": 1,
     "fields": {
-        "username": [
-            "ujjwal"
-        ],
-        "email": "bajracharyaujjwal.1d@gmail.com"
+        "name": "Dried and Fresh Florals"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 2,
+    "fields": {
+        "name": "Plants and Living greenary"
+    }
+},
+{
+    "model": "products.category",
+    "pk": 3,
+    "fields": {
+        "name": "Gifts and Home Goods"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+        "Category": 1,
+        "name": "Boho Sunset Mix",
+        "price": "200.00",
+        "description": "A warm and earthy arrangement combining dried florals and grasses with sun-kissed tones, perfect for adding a bohemian aesthetic to any living space",
+        "image": "products/bouquet.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T12:59:24.482Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+        "Category": 1,
+        "name": "Lavender and wheat",
+        "price": "150.00",
+        "description": "A charming, rustic bundle of fragrant dried lavender stems paired with golden wheat stalks, bringing a calming natural aroma and farmhouse charm to your home. (Priced at Rs. 150.00)",
+        "image": "products/flower1.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T12:59:51.480Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+        "Category": 1,
+        "name": "Modern Natural Crescent",
+        "price": "250.00",
+        "description": "A contemporary crescent-shaped floral arrangement featuring a curated selection of dried and fresh botanicals arranged with clean, modern artistic flair.",
+        "image": "products/bouquet2.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:00:11.203Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+        "Category": 1,
+        "name": "Spring Pastel",
+        "price": "200.00",
+        "description": "A soft and cheerful mix of pastel-toned florals that captures the vibrant and refreshing essence of springtime",
+        "image": "products/bouquet1.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:00:30.756Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+        "Category": 2,
+        "name": "Eucalyptus",
+        "price": "200.00",
+        "description": "Fresh eucalyptus stems known for their striking silvery-green foliage and refreshing, aromatic scent—great for indoor vases or hanging in the shower.",
+        "image": "products/green.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:00:45.267Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+        "Category": 2,
+        "name": "ZZ Plant",
+        "price": "250.00",
+        "description": "A resilient, low-maintenance houseplant featuring glossy, dark green leaves that thrive exceptionally well in low-light indoor environments",
+        "image": "products/green1.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:01:03.735Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+        "Category": 2,
+        "name": "Golden Pothos",
+        "price": "250.00",
+        "description": "A popular trailing houseplant with heart-shaped leaves variegated in vibrant green and golden-yellow, ideal for hanging baskets or shelves",
+        "image": "products/green2.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:01:19.231Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+        "Category": 2,
+        "name": "Chinese Evergreen",
+        "price": "300.00",
+        "description": "An attractive, easy-to-grow foliage plant featuring patterned leaves that effortlessly brighten up office desks or room corners.",
+        "image": "products/green3.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:01:37.377Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+        "Category": 3,
+        "name": "Scented Candles",
+        "price": "400.00",
+        "description": "Premium poured candles designed to create a warm, inviting glow while filling your living space with a soothing, long-lasting fragrance.",
+        "image": "products/candle.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:01:55.766Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+        "Category": 3,
+        "name": "Greeting Cards",
+        "price": "150.00",
+        "description": "Beautifully crafted cards with blank interiors, perfect for personalizing heartfelt messages for birthdays, celebrations, or special occasions.",
+        "image": "products/cards.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:02:13.484Z"
+    }
+},
+{
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+        "Category": 3,
+        "name": "Spa Baskets",
+        "price": "600.00",
+        "description": "A luxurious assortment of self-care and relaxation essentials curated to provide a rejuvenating at-home spa experience",
+        "image": "products/spa.jpg",
+        "is_available": true,
+        "created_at": "2026-09-18T13:02:28.238Z"
     }
 }
 ]
