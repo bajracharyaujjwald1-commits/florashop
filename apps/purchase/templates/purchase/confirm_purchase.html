@@ -19,19 +19,12 @@
             <div class="col-lg-7">
 
                 <div class="card border-0 shadow-sm rounded-4 p-4 text-center mb-4">
-                    {% if purchase.is_purchase_verified %}
                     <div class="text-success mb-3">
                         <i class="bi bi-check-circle-fill display-1"></i>
                     </div>
-                    <h2 class="fw-bold text-dark">Payment Successful!</h2>
+                   
                     <p class="text-muted">Your payment via Khalti was verified. Your order is now being processed.</p>
-                    {% else %}
-                    <div class="text-primary mb-3">
-                        <i class="bi bi-box-seam-fill display-1"></i>
-                    </div>
-                    <h2 class="fw-bold text-dark">Order Confirmed (Cash on Delivery)</h2>
-                    <p class="text-muted">Thank you! Please keep Rs. {{ total }} ready upon delivery.</p>
-                    {% endif %}
+                    
 
                     <div class="bg-light rounded-3 p-3 my-4 text-start">
                         <div class="d-flex justify-content-between mb-2">

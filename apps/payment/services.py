@@ -21,7 +21,7 @@ def initiate_khalti_payment(
         "customer_info": {
             "name": customer_info.get("name", "Customer"),
             "email": customer_info.get("email", "customer@example.com"),
-            "phone": customer_info.get("phone", "9800000000"),
+            "phone": 9800000005,
         },
     }
 

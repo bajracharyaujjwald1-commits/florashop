@@ -595,9 +595,7 @@
 
 /* Image subtly zooms when card is hovered */
 
-.floral-card:hover .floral-image img {
-  transform: scale(1.04);
-}
+
 
 
 /* =========================================
@@ -658,7 +656,7 @@
   cursor: pointer;
 
   transition:
-    transform 0.3s ease,
+  
     background 0.3s ease,
     box-shadow 0.3s ease;
 }
