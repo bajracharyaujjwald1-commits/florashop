@@ -134,7 +134,7 @@
   min-height: 420px;
   background:
     linear-gradient(rgba(31, 34, 50, 0.08), rgba(31, 34, 50, 0.08)),
-    url("images/about1.jpg") center / cover no-repeat;
+    url("images/about1.webp") center / cover no-repeat;
   box-shadow: 18px 18px 0 var(--midnight-navy);
 }
 
@@ -398,7 +398,7 @@
   min-height: 650px;
   background:
     linear-gradient(rgba(31, 34, 50, 0.14), rgba(31, 34, 50, 0.14)),
-    url("images/login.jpg") center / cover no-repeat;
+    url("images/login.webp") center / cover no-repeat;
 }
 
 .form-column {
