@@ -28,7 +28,7 @@
         "name": "Boho Sunset Mix",
         "price": "200.00",
         "description": "A warm and earthy arrangement combining dried florals and grasses with sun-kissed tones, perfect for adding a bohemian aesthetic to any living space",
-        "image": "products/bouquet.jpg",
+        "image": "products/bouquet.webp",
         "is_available": true,
         "created_at": "2026-09-18T12:59:24.482Z"
     }
@@ -41,7 +41,7 @@
         "name": "Lavender and wheat",
         "price": "150.00",
         "description": "A charming, rustic bundle of fragrant dried lavender stems paired with golden wheat stalks, bringing a calming natural aroma and farmhouse charm to your home. (Priced at Rs. 150.00)",
-        "image": "products/flower1.jpg",
+        "image": "products/flower1.webp",
         "is_available": true,
         "created_at": "2026-09-18T12:59:51.480Z"
     }
@@ -54,7 +54,7 @@
         "name": "Modern Natural Crescent",
         "price": "250.00",
         "description": "A contemporary crescent-shaped floral arrangement featuring a curated selection of dried and fresh botanicals arranged with clean, modern artistic flair.",
-        "image": "products/bouquet2.jpg",
+        "image": "products/bouquet2.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:00:11.203Z"
     }
@@ -67,7 +67,7 @@
         "name": "Spring Pastel",
         "price": "200.00",
         "description": "A soft and cheerful mix of pastel-toned florals that captures the vibrant and refreshing essence of springtime",
-        "image": "products/bouquet1.jpg",
+        "image": "products/bouquet1.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:00:30.756Z"
     }
@@ -80,7 +80,7 @@
         "name": "Eucalyptus",
         "price": "200.00",
         "description": "Fresh eucalyptus stems known for their striking silvery-green foliage and refreshing, aromatic scent—great for indoor vases or hanging in the shower.",
-        "image": "products/green.jpg",
+        "image": "products/green.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:00:45.267Z"
     }
@@ -93,7 +93,7 @@
         "name": "ZZ Plant",
         "price": "250.00",
         "description": "A resilient, low-maintenance houseplant featuring glossy, dark green leaves that thrive exceptionally well in low-light indoor environments",
-        "image": "products/green1.jpg",
+        "image": "products/green1.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:01:03.735Z"
     }
@@ -106,7 +106,7 @@
         "name": "Golden Pothos",
         "price": "250.00",
         "description": "A popular trailing houseplant with heart-shaped leaves variegated in vibrant green and golden-yellow, ideal for hanging baskets or shelves",
-        "image": "products/green2.jpg",
+        "image": "products/green2.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:01:19.231Z"
     }
@@ -119,7 +119,7 @@
         "name": "Chinese Evergreen",
         "price": "300.00",
         "description": "An attractive, easy-to-grow foliage plant featuring patterned leaves that effortlessly brighten up office desks or room corners.",
-        "image": "products/green3.jpg",
+        "image": "products/green3.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:01:37.377Z"
     }
@@ -132,7 +132,7 @@
         "name": "Scented Candles",
         "price": "400.00",
         "description": "Premium poured candles designed to create a warm, inviting glow while filling your living space with a soothing, long-lasting fragrance.",
-        "image": "products/candle.jpg",
+        "image": "products/candle.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:01:55.766Z"
     }
@@ -145,7 +145,7 @@
         "name": "Greeting Cards",
         "price": "150.00",
         "description": "Beautifully crafted cards with blank interiors, perfect for personalizing heartfelt messages for birthdays, celebrations, or special occasions.",
-        "image": "products/cards.jpg",
+        "image": "products/cards.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:02:13.484Z"
     }
@@ -158,7 +158,7 @@
         "name": "Spa Baskets",
         "price": "600.00",
         "description": "A luxurious assortment of self-care and relaxation essentials curated to provide a rejuvenating at-home spa experience",
-        "image": "products/spa.jpg",
+        "image": "products/spa.webp",
         "is_available": true,
         "created_at": "2026-09-18T13:02:28.238Z"
     }

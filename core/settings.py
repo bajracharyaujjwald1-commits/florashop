@@ -193,3 +193,5 @@ DEFAULT_FROM_EMAIL = env(
 )
 
 LOGIN_URL = "/admin/login/"
+
+STATIC_ROOT = BASE_DIR/ 'staticfiles'
